@@ -5,6 +5,9 @@ class InfoPage extends StatelessWidget {
   final String birthDate;
   final String selectedGender;
   final bool isEgyptian;
+  final bool student;
+
+  final String city;
 
   const InfoPage({
     Key? key,
@@ -12,6 +15,8 @@ class InfoPage extends StatelessWidget {
     required this.birthDate,
     required this.selectedGender,
     required this.isEgyptian,
+    required this.city,
+    required this.student,
   }) : super(key: key);
 
   @override
@@ -86,12 +91,30 @@ class InfoPage extends StatelessWidget {
                     ),
                   ),
                   ListTile(
+                    leading: const Icon(Icons.location_city,
+                        color: Color(0xffC9A335)),
+                    title: Text(
+                      'City: $city',
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  ListTile(
                     leading: Icon(
                       isEgyptian ? Icons.flag : Icons.language,
                       color: const Color(0xffC9A335),
                     ),
                     title: Text(
                       'Egyptian?: ${isEgyptian ? "Yes" : "No"}',
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.school, color: Color(0xffC9A335)),
+                    title: Text(
+                      'Student?: ${student ? "Yes" : "No"}',
+                      // use yes and no insted of flase
                       style: const TextStyle(
                           fontSize: 18, fontWeight: FontWeight.bold),
                     ),
